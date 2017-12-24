@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+    <applicationTopology>
+        <version><%= static_version("com.wixpress.eureka.wix-eureka-dl-engine") %></version>
+        <rootUrl>//bo.<%= base_domain %>/eureka/dl</rootUrl>
+        <rpcUrl><%= rpc_service_url("com.wixpress.eureka.wix-eureka-dl-engine") %></rpcUrl>
+        <restUrl><%= rest_service_url("com.wixpress.eureka.wix-eureka-dl-engine") %></restUrl>
+    </applicationTopology>
+    <serviceTopology>
+        <metaSiteManagerUrl><%= rpc_service_url("com.wixpress.wix-meta-site-manager-webapp") %></metaSiteManagerUrl>
+        <usersServerUrl><%= rpc_service_url("com.wixpress.wix-html-login-webapp") %></usersServerUrl>
+        <petriUrl><%= rpc_service_url("com.wixpress.common.wix-petri-server") %>/</petriUrl>
+    </serviceTopology>
+    <!-- test -->
+    <facebook>
+      <baseUrl>https://graph.facebook.com</baseUrl>
+        <applications>
+            <default>
+                <clientId><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_facebook_clientId") %></clientId>
+                <clientSecret><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_facebook_clientSecret") %></clientSecret>
+                <appToken><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_facebook_appToken") %></appToken>
+            </default>
+            <extended>
+                <clientId><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_extended_facebook_clientId") %></clientId>
+                <clientSecret><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_extended_facebook_clientSecret") %></clientSecret>
+                <appToken><%= databag_passwd("com.wixpress.wix-html-login-webapp","social_extended_facebook_appToken") %></appToken>
+            </extended>
+        </applications>
+    </facebook>
+    <!-- test -->
+    <cryptography>
+        <cipher>
+          <mainKey><%= crypto_main_key %></mainKey>
+          <alternateKey><%= crypto_alternate_key %></alternateKey>
+        </cipher>
+    </cryptography>
+    <rpc>
+        <signing>
+            <password><%= rpc_signing_password %></password>
+        </signing>
+    </rpc>
+    <%= static_usage_stats %>
+</configuration>

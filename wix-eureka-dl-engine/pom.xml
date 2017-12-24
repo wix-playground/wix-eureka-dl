@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wixpress.eureka</groupId>
+    <artifactId>wix-eureka-dl-engine</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <description>Wix Eureka DL Engine</description>
+    <packaging>jar</packaging>
+    <url>${project_url}/${project.artifactId}</url>
+
+    <parent>
+        <groupId>com.wixpress</groupId>
+        <artifactId>wix-server-bootstrap-parent</artifactId>
+        <version>100.0.0-SNAPSHOT</version>
+        <relativePath />
+    </parent>
+
+    <properties>
+        <server.mainClass>com.wix.eureka.dl.WebServer</server.mainClass>
+        <spark.version>2.1.2</spark.version>
+        <janino.version>3.0.7</janino.version>
+        <!--
+        <nd4j.version>0.9.1</nd4j.version>
+        <thoughtworks.version>2.0.2</thoughtworks.version>
+        <ignite.version>2.3.0</ignite.version>
+        <deeplearning4j.version>0.9.1</deeplearning4j.version>
+        <waikato.weka.version>3.8.1</waikato.weka.version>
+        <waikato.moa.version>2017.06</waikato.moa.version>
+        -->
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wixpress.eureka</groupId>
+            <artifactId>wix-eureka-dl-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.eureka</groupId>
+            <artifactId>wix-eureka-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.eureka</groupId>
+            <artifactId>wix-eureka-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wixpress</groupId>
+            <artifactId>wix-one-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress</groupId>
+            <artifactId>wix-one-common</artifactId>
+            <version>1.25.0-SNAPSHOT</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wixpress</groupId>
+            <artifactId>bootstrap-server-testkit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.ci</groupId>
+            <artifactId>wix-authentication-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.authorization.gatekeeper</groupId>
+            <artifactId>gatekeeper-tpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.authorization.gatekeeper</groupId>
+            <artifactId>gatekeeper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress</groupId>
+            <artifactId>authorization-test-kit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.framework</groupId>
+            <artifactId>wix-cache-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.framework</groupId>
+            <artifactId>wix-cache-app-info</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.wixpress.framework</groupId>
+            <artifactId>wix-cache-testkit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wixpress</groupId>
+            <artifactId>wix-html-domain-commons</artifactId>
+        </dependency>
+
+        <!-- apache spark dependencies -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>${spark.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>javax.servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.codehaus.janino</groupId>
+                    <artifactId>janino</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.codehaus.janino</groupId>
+                    <artifactId>commons-compiler</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>commons-compiler</artifactId>
+            <version>${janino.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>${janino.version}</version>
+        </dependency>
+        <!-- end of apache spark dependencies -->
+
+        <!--
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-core</artifactId>
+            <version>${ignite.version}</version>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-core</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-nn</artifactId>
+            <version>${deeplearning4j.version}</version>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-api</artifactId>
+            <version>${nd4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native-platform</artifactId>
+            <version>${nd4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4s_2.11</artifactId>
+            <version>${nd4j.version}</version>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+            <groupId>com.thoughtworks.deeplearning</groupId>
+            <artifactId>deeplearning_2.12</artifactId>
+            <version>${thoughtworks.version}</version>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+            <groupId>nz.ac.waikato.cms.weka</groupId>
+            <artifactId>weka-stable</artifactId>
+            <version>${waikato.weka.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>nz.ac.waikato.cms.moa</groupId>
+            <artifactId>moa</artifactId>
+            <version>${waikato.moa.version}</version>
+        </dependency>
+        -->
+    </dependencies>
+
+    <developers>
+        <developer>
+            <name>Yuval Aviyam</name>
+            <email>yuvala@wix.com</email>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+    </developers>
+
+</project>

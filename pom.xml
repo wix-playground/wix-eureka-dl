@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wixpress.eureka</groupId>
+    <artifactId>wix-eureka-dl</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <description>Wix Eureka DL POM</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>wix-eureka-dl-api</module>
+        <module>wix-eureka-dl-engine</module>
+    </modules>
+
+    <developers>
+        <developer>
+            <name>Yuval Aviyam</name>
+            <email>yuvala@wix.com</email>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+    </developers>
+
+</project>

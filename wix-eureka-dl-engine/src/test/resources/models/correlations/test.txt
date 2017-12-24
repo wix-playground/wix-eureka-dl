@@ -1,0 +1,7 @@
+id	is_sell	fld_2	fld_3	fld_4	facebook_likes
+item-1	1	-1	0	1	850
+item-2	1	-1	1	0	1234
+item-3	1	-1	1	1	640
+item-4	0	1	1	0	102
+item-5	0	1	1	1	5
+item-6	0	1	1	0	32

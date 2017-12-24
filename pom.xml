@@ -4,13 +4,17 @@
     <groupId>com.wixpress.eureka</groupId>
     <artifactId>wix-eureka-dl</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <description>Wix Eureka DL POM</description>
+    <description>Wix Eureka DL Master POM</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>wix-eureka-dl-api</module>
         <module>wix-eureka-dl-engine</module>
     </modules>
+
+    <organization>
+        <name>Promote</name>
+    </organization>
 
     <developers>
         <developer>
